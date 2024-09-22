@@ -63,5 +63,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.testcontainers:testcontainers:1.19.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.testcontainers:junit-jupiter:1.19.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.testcontainers:mongodb:1.19.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:17.0.0" level="project" />
   </component>
 </module>

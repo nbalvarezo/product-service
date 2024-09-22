@@ -3,6 +3,7 @@ package com.meiggsmarket.productservice;
 import com.meiggsmarket.productservice.dto.ProductRequest;
 import com.meiggsmarket.productservice.model.Product;
 import com.meiggsmarket.productservice.repository.ProductRepository;
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,7 @@ class ProductServiceApplicationTests {
 			.withStartupTimeout(Duration.ofMinutes(2));
 
 	@DynamicPropertySource
-	static void setProperties(DynamicPropertyRegistry dynamicPropertyRegistry)
+	static void setProperties(@NotNull DynamicPropertyRegistry dynamicPropertyRegistry) {
 		String mongoUri = mongoDBContainer.getReplicaSetUrl();
 		dynamicPropertyRegistry.add("spring.data.mongodb.uri", () -> mongoUri);
 	}
