@@ -1,0 +1,7 @@
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/repository/ProductRepository.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/model/Product.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/service/ProductService.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/controller/ProductController.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/dto/ProductRequest.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/ProductServiceApplication.java
+/home/user/Desktop/Projects/meiggsmarket/product-service/src/main/java/com/meiggsmarket/productservice/dto/ProductResponse.java

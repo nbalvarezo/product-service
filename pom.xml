@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Modelo básico para Maven -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Especifica el "parent" para heredar configuraciones comunes de Spring Boot -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.9</version>
+		<relativePath/> <!-- Busca el padre en el repositorio -->
+	</parent>
+
+	<!-- Información del proyecto -->
+	<groupId>com.meiggsmarket</groupId>
+	<artifactId>product-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>product-service</name>
+	<description>Product Service</description>
+
+	<!-- Propiedades globales del proyecto -->
+	<properties>
+		<java.version>17</java.version> <!-- Definir la versión de Java -->
+	</properties>
+
+	<!-- Dependencias necesarias para el proyecto -->
+	<dependencies>
+		<!-- Spring Boot Core: Funcionalidad básica de Spring Boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<!-- Soporte para MongoDB -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+		<!-- Módulo Web: Necesario para construir APIs REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Lombok: Reduce el código repetitivo como getters, setters y constructores -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<optional>true</optional> <!-- Solo lo usa en compilación -->
+		</dependency>
+
+		<!-- DevTools: Para recarga en caliente durante el desarrollo -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope> <!-- Solo se activa en tiempo de ejecución -->
+			<optional>true</optional> <!-- No requerido en todos los entornos -->
+		</dependency>
+
+		<!-- Web Services: Soporte para crear servicios web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+
+		<!-- Logging: Implementación de SLF4J con Logback -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<!-- Dependencias para pruebas unitarias -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope> <!-- Solo disponible en el entorno de pruebas -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId> <!-- Excluye JUnit 4 -->
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- JUnit 5 para pruebas -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.10.3</version>
+			<scope>test</scope> <!-- Solo en pruebas -->
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.10.3</version>
+			<scope>test</scope> <!-- Solo en pruebas -->
+		</dependency>
+
+		<!-- Testcontainers para pruebas con MongoDB -->
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>mongodb</artifactId>
+			<version>1.19.0</version>
+			<scope>test</scope> <!-- Solo en pruebas -->
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>1.19.0</version>
+			<scope>test</scope> <!-- Solo en pruebas -->
+		</dependency>
+
+		<!-- AssertJ para aserciones más fáciles en pruebas -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.24.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Mockito para pruebas unitarias con JUnit 5 -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>5.5.0</version> <!-- Usa la versión más reciente disponible -->
+			<scope>test</scope> <!-- Solo disponible en el entorno de pruebas -->
+		</dependency>
+
+		<!-- Jackson para serialización y deserialización de objetos JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+	</dependencies>
+
+	<!-- Gestión de versiones de dependencias con BOM (Bill of Materials) -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Testcontainers BOM: Asegura la consistencia de versiones -->
+			<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>testcontainers-bom</artifactId>
+				<version>1.19.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- Configuración de compilación y plugins -->
+	<build>
+		<plugins>
+			<!-- Plugin Maven para trabajar con Spring Boot -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Plugin Surefire: Ejecuta pruebas unitarias y de integración -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<includes>
+						<include>**/*Tests.java</include> <!-- Incluir clases de pruebas -->
+						<include>**/*Test.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<!-- Plugin de compilación de Maven -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>17</source> <!-- Define la versión de Java usada en el código fuente -->
+					<target>17</target> <!-- Define la versión de Java de destino -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

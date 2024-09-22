@@ -1,0 +1,10 @@
+com/meiggsmarket/productservice/model/Product$ProductBuilder.class
+com/meiggsmarket/productservice/dto/ProductRequest.class
+com/meiggsmarket/productservice/dto/ProductResponse.class
+com/meiggsmarket/productservice/dto/ProductRequest$ProductRequestBuilder.class
+com/meiggsmarket/productservice/dto/ProductResponse$ProductResponseBuilder.class
+com/meiggsmarket/productservice/controller/ProductController.class
+com/meiggsmarket/productservice/ProductServiceApplication.class
+com/meiggsmarket/productservice/service/ProductService.class
+com/meiggsmarket/productservice/repository/ProductRepository.class
+com/meiggsmarket/productservice/model/Product.class
